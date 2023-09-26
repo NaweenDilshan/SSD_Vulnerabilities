@@ -1,11 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const ToDo = require('../models/ToDo')
-//const auth = require('../middleware/auth')
 
-// @url           POST /todo/addtodo
-// @description   add todo item
-// @access-mode   private 
 router.post('/addtodo',  async (req, res) => {
   try {
     const {message} = req.body
@@ -24,9 +20,6 @@ router.post('/addtodo',  async (req, res) => {
   }
 })
 
-// @url           GET /todo/gettodos
-// @description   get incomplete todo items
-// @access-mode   private
 router.get('/gettodos',  async (req, res) => {
   try {
     const todos = await ToDo.find({userID: "ssd"})
@@ -37,9 +30,6 @@ router.get('/gettodos',  async (req, res) => {
   }
 })
 
-// @url           GET /todo/getcompletetodos
-// @description   get completed todo items
-// @access-mode   private
 router.get('/getcompletetodos',  async (req, res) => {
   try {
     const todos = await ToDo.find({userID: req.user._id, complete: true})
@@ -50,9 +40,6 @@ router.get('/getcompletetodos',  async (req, res) => {
   }
 })
 
-// @url           PUT /todo/markcomplete/:id
-// @description   mark todo items as completed one
-// @access-mode   private
 router.put('/markcomplete',  async(req, res) => {
   try {
     const { itemID, complete } = req.body
@@ -64,9 +51,6 @@ router.put('/markcomplete',  async(req, res) => {
   }
 })
 
-// @url           PUT /todo/updatetodo/:id
-// @description   update todo item
-// @access-mode   private
 router.put('/updatetodo/:id', async(req, res) => {
   const todoID = req.params.id
   try {
@@ -79,9 +63,6 @@ router.put('/updatetodo/:id', async(req, res) => {
   }
 })
 
-// @url           DELETE /todo/updatetodo/:id
-// @description   update todo item
-// @access-mode   private
 router.delete('/deletetodo/:id',  async(req, res) => {
   const todoID = req.params.id
   try {
@@ -93,9 +74,6 @@ router.delete('/deletetodo/:id',  async(req, res) => {
   }
 })
 
-// @url           DELETE /todo/deleteall
-// @description   delete all todos
-// @access-mode   private
 router.delete('/deleteall',  async (req, res) => {
   try {
     await ToDo.deleteMany({userID: req.user.id})
