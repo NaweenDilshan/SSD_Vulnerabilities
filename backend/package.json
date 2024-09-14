@@ -11,11 +11,11 @@
   "author": "Rusiru Abhisheak",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.3",
+    "config": "^3.3.12",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.10.17"
+    "dotenv": "^8.6.0",
+    "express": "^4.19.2",
+    "mongoose": "^5.13.22"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
